@@ -2,6 +2,7 @@ package com.example.coronapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -32,22 +33,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showList();
         makeApiCall();
     }
 
-    private void showList(){
+    private void showList(List<Corona> coronaList){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }
 
-        mAdapter = new RecyclerViewAdapter(input);
+        mAdapter = new RecyclerViewAdapter(coronaList);
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -70,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RestCoronaResponse> call, Response<RestCoronaResponse> response) {
                 if(response.isSuccessful() && response.body()!=null) {
                     List<Corona> coronaList = response.body().getCountries();
+                    showList(coronaList);
                     Toast.makeText(getApplicationContext(), "API Succes", Toast.LENGTH_SHORT).show();
                 }else{
                     showError();
