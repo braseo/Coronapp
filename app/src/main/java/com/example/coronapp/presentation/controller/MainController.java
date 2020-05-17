@@ -75,7 +75,6 @@ public class MainController {
                 .edit()
                 .putString(Constants.KEY_CORONA_LIST, jsonString)
                 .apply();
-        //Toast.makeText(getApplicationContext(), "List Saved", Toast.LENGTH_SHORT).show();
     }
 
     private List<Corona> getDataFromCache() {
@@ -90,6 +89,7 @@ public class MainController {
     }
 
     public void onItemClick(Corona corona){
+        view.navigateToDetails(corona);
 
     }
 }

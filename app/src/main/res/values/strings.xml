@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Coronapp</string>
+    <string name="detail_text">Ecran Details</string>
 </resources>
