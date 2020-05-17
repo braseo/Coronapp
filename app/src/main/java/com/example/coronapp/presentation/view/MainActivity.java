@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.coronapp.presentation.Constants;
 import com.example.coronapp.data.CoronaApi;
 import com.example.coronapp.R;
+import com.example.coronapp.presentation.controller.MainController;
 import com.example.coronapp.presentation.model.Corona;
 import com.example.coronapp.presentation.model.RestCoronaResponse;
 import com.google.gson.Gson;
@@ -34,40 +35,27 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private SharedPreferences sharedPreferences;
-    private Gson gson;
+
+    private MainController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences = getSharedPreferences("Coronapp", Context.MODE_PRIVATE);
-        gson = new GsonBuilder()
-                .setLenient()
-                .create();
+        controller = new MainController(
+                this,
+                 new GsonBuilder()
+                        .setLenient()
+                        .create(),
+        getSharedPreferences("Coronapp", Context.MODE_PRIVATE)
 
-        List<Corona> coronaList = getDataFromCache();
+        );
+        controller.onStart();
 
-        if(coronaList != null){
-            showList(coronaList);
-        } else {
-            makeApiCall();
-        }
     }
 
-    private List<Corona> getDataFromCache() {
-        String jsonCorona = sharedPreferences.getString(Constants.KEY_CORONA_LIST, null);
-
-        if(jsonCorona == null){
-            return null;
-        } else {
-            Type listType = new TypeToken<List<Corona>>(){}.getType();
-            return gson.fromJson(jsonCorona, listType);
-        }
-    }
-
-    private void showList(List<Corona> coronaList) {
+    public void showList(List<Corona> coronaList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -77,46 +65,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
-    private void makeApiCall(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
 
-        CoronaApi coronaApi = retrofit.create(CoronaApi.class);
-
-        Call<RestCoronaResponse> call = coronaApi.getCoronaResponse();
-
-        call.enqueue(new Callback<RestCoronaResponse>() {
-            @Override
-            public void onResponse(Call<RestCoronaResponse> call, Response<RestCoronaResponse> response) {
-                if(response.isSuccessful() && response.body() != null){
-                    List<Corona> coronaList = response.body().getCountries();
-                    saveList(coronaList);
-                    showList(coronaList);
-                } else {
-                    showError();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RestCoronaResponse> call, Throwable t) {
-                showError();
-            }
-        });
-    }
-
-    private void saveList(List<Corona> coronaList) {
-        String jsonString = gson.toJson(coronaList);
-
-        sharedPreferences
-                .edit()
-                .putString(Constants.KEY_CORONA_LIST, jsonString)
-                .apply();
-        Toast.makeText(getApplicationContext(), "List Saved", Toast.LENGTH_SHORT).show();
-    }
-
-    private void showError() {
+    public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }
 }
