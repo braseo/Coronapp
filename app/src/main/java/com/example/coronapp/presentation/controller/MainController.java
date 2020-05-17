@@ -1,19 +1,13 @@
 package com.example.coronapp.presentation.controller;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.coronapp.data.CoronaApi;
-import com.example.coronapp.presentation.Constants;
+import com.example.coronapp.Constants;
+import com.example.coronapp.Singletons;
 import com.example.coronapp.presentation.model.Corona;
 import com.example.coronapp.presentation.model.RestCoronaResponse;
 import com.example.coronapp.presentation.view.MainActivity;
-import com.example.coronapp.presentation.view.RecyclerViewAdapter;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -22,8 +16,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainController {
 
@@ -55,14 +47,7 @@ public class MainController {
 
 
     private void makeApiCall(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        CoronaApi coronaApi = retrofit.create(CoronaApi.class);
-
-        Call<RestCoronaResponse> call = coronaApi.getCoronaResponse();
+        Call<RestCoronaResponse> call = Singletons.getCoronaApi().getCoronaResponse();
 
         call.enqueue(new Callback<RestCoronaResponse>() {
             @Override
