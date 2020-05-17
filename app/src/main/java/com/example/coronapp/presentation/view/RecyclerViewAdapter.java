@@ -1,12 +1,14 @@
-package com.example.coronapp;
+package com.example.coronapp.presentation.view;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.coronapp.R;
+import com.example.coronapp.presentation.model.Corona;
 
 import java.util.List;
 

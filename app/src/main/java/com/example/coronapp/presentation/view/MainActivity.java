@@ -1,4 +1,4 @@
-package com.example.coronapp;
+package com.example.coronapp.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.coronapp.presentation.Constants;
+import com.example.coronapp.data.CoronaApi;
+import com.example.coronapp.R;
+import com.example.coronapp.presentation.model.Corona;
+import com.example.coronapp.presentation.model.RestCoronaResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
