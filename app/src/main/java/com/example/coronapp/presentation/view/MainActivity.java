@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -12,7 +12,6 @@ import com.example.coronapp.R;
 import com.example.coronapp.Singletons;
 import com.example.coronapp.presentation.controller.MainController;
 import com.example.coronapp.presentation.model.Corona;
-import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
@@ -44,12 +43,25 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new RecyclerViewAdapter(coronaList);
+
+        mAdapter = new RecyclerViewAdapter(coronaList, new RecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Corona item) {
+                controller.onItemClick(item);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 
 
     public void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
+    }
+
+    public void navigateToDetails(Corona corona) {
+        Intent myIntent = new Intent(MainActivity.this, DetailsActivity.class);
+        myIntent.putExtra("coronakey", Singletons.getGson().toJson(corona));
+        MainActivity.this.startActivity(myIntent);
+
     }
 }
