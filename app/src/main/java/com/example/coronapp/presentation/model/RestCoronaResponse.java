@@ -1,4 +1,4 @@
-package com.example.coronapp;
+package com.example.coronapp.presentation.model;
 
 import java.util.List;
 
