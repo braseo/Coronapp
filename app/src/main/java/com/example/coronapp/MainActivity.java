@@ -2,16 +2,18 @@ package com.example.coronapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,32 +29,50 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private SharedPreferences sharedPreferences;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        makeApiCall();
+        sharedPreferences = getSharedPreferences("Coronapp", Context.MODE_PRIVATE);
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        List<Corona> coronaList = getDataFromCache();
+
+        if(coronaList != null){
+            showList(coronaList);
+        } else {
+            makeApiCall();
+        }
     }
 
-    private void showList(List<Corona> coronaList){
+    private List<Corona> getDataFromCache() {
+        String jsonCorona = sharedPreferences.getString(Constants.KEY_CORONA_LIST, null);
+
+        if(jsonCorona == null){
+            return null;
+        } else {
+            Type listType = new TypeToken<List<Corona>>(){}.getType();
+            return gson.fromJson(jsonCorona, listType);
+        }
+    }
+
+    private void showList(List<Corona> coronaList) {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-
         mAdapter = new RecyclerViewAdapter(coronaList);
         recyclerView.setAdapter(mAdapter);
     }
 
-
     private void makeApiCall(){
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -61,28 +81,37 @@ public class MainActivity extends AppCompatActivity {
         CoronaApi coronaApi = retrofit.create(CoronaApi.class);
 
         Call<RestCoronaResponse> call = coronaApi.getCoronaResponse();
+
         call.enqueue(new Callback<RestCoronaResponse>() {
             @Override
             public void onResponse(Call<RestCoronaResponse> call, Response<RestCoronaResponse> response) {
-                if(response.isSuccessful() && response.body()!=null) {
+                if(response.isSuccessful() && response.body() != null){
                     List<Corona> coronaList = response.body().getCountries();
+                    saveList(coronaList);
                     showList(coronaList);
-                    Toast.makeText(getApplicationContext(), "API Succes", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     showError();
                 }
-
             }
 
             @Override
             public void onFailure(Call<RestCoronaResponse> call, Throwable t) {
-
+                showError();
             }
         });
     }
+
+    private void saveList(List<Corona> coronaList) {
+        String jsonString = gson.toJson(coronaList);
+
+        sharedPreferences
+                .edit()
+                .putString(Constants.KEY_CORONA_LIST, jsonString)
+                .apply();
+        Toast.makeText(getApplicationContext(), "List Saved", Toast.LENGTH_SHORT).show();
+    }
+
     private void showError() {
         Toast.makeText(getApplicationContext(), "API Error", Toast.LENGTH_SHORT).show();
     }
-
-
 }
