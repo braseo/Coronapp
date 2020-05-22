@@ -1,4 +1,6 @@
-package com.example.coronapp;
+package com.example.coronapp.data;
+
+import com.example.coronapp.presentation.model.RestCoronaResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
