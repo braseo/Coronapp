@@ -2,6 +2,9 @@ package com.example.coronapp.presentation.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,14 +21,20 @@ import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    private TextView txtDetails;
+    private TextView txtCountry;
+    private TextView txtDeath;
+    private TextView txtRecovered;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        txtDetails = findViewById(R.id.details_txt);
+        txtCountry = findViewById(R.id.details_txt);
+        txtDeath = findViewById(R.id.mort_txt);
+        txtRecovered = findViewById(R.id.recovered_txt);
+
         Intent intent = getIntent();
         String coronaJson = intent.getStringExtra("coronakey");
         Corona corona = Singletons.getGson().fromJson(coronaJson, Corona.class);
@@ -35,6 +44,11 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void showDetails(Corona corona) {
-        txtDetails.setText(corona.getCountry());
+        txtCountry.setText( corona.getCountry());
+        txtDeath.setText("Total Deaths: " + corona.getTotalDeaths());
+        txtRecovered.setText("Total Recovered: " + corona.getTotalRecovered());
+
     }
+
+
 }

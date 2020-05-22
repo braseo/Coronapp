@@ -34,6 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+
     public void add(int position, Corona item) {
         values.add(position, item);
         notifyItemInserted(position);
@@ -64,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Corona currentCorona = values.get(position);
         holder.txtHeader.setText(currentCorona.getCountry());
-        holder.txtFooter.setText(currentCorona.getTotalDeaths());
+        holder.txtFooter.setText("Click for more info");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
@@ -79,5 +80,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount() {
         return values.size();
     }
+
+    public void filterList(List<Corona> filteredList) {
+        values = filteredList;
+        notifyDataSetChanged();
+    }
+
 
 }
