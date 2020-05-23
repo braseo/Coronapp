@@ -48,10 +48,10 @@ https://github.com/braseo/Coronapp.git
 	
 	- Settings qui affiche un toast
 	- Exit qui quitte l'application
-<img src="images/Item.png" alt="Item" width="200" height="400" />
+<img src="images/Item.png" alt="Item" width="300" height="600" />
 	
 - Barre de recherche pour trouver directement un pays
-<img src="images/Search_bar.png" alt="Search_bar" width="200" height="400" />
+<img src="images/Search_bar.png" alt="Search_bar" width="300" height="600" />
 
 ### Ecran détail des pays, le nombre de contaminé et le nombre de mort
 
@@ -60,11 +60,11 @@ https://github.com/braseo/Coronapp.git
 - Affiche le nombre de personnes qui ont survécu au virus
 
 
-<img src="images/Detail_activity.png" alt="Detail_activity" width="200" height="400" />
+<img src="images/Detail_activity.png" alt="Detail_activity" width="300" height="600" />
 
 ### Notifications
 
 Reception de notification avec Firebase Cloud Messaging.
 
-<img src="images/Firebase.png" alt="Firebase" width="200" height="400" />
+<img src="images/Firebase.png" alt="Firebase" width="300" height="600" />
 
