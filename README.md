@@ -42,14 +42,16 @@ https://github.com/braseo/Coronapp.git
 
 - Recycler view avec le nom des pays toucber par le coronavirus .
 
-<img src="images/Recycler_view.png" alt="Recycler view" width="200" height="400" />
+<img src="images/Recycler_view.png" alt="Recycler view" width="400" height="200" />
 
 - Menu en appuyant sur les 3 points en haut à droite avec 2 options:
 	
 	- Settings qui affiche un toast
 	- Exit qui quitte l'application
+<img src="images/Item.png" alt="Item" width="200" height="400" />
 	
 - Barre de recherche pour trouver directement un pays
+<img src="images/Search_bar.png" alt="Search_bar" width="200" height="400" />
 
 ### Ecran détail des pays, le nombre de contaminé et le nombre de mort
 
