@@ -4,7 +4,7 @@
 
 Projet d'une application mobile dans le cadre du cours Programmation Mobile ESIEA
 
-Cette application affiche les pays toucher par le corona virus, les morts et les personnes qui ont survécu
+Cette application affiche les pays touchés par le corona virus, les morts et les personnes qui ont survécu
 
 ## Prérequis
 
@@ -40,7 +40,7 @@ https://github.com/braseo/Coronapp.git
 
 ### Premier écran 
 
-- Recycler view avec le nom des pays toucber par le coronavirus .
+- Recycler view avec les noms des pays touchés par le coronavirus.
 
 <img src="images/Recycler_view.png" alt="Recycler view" width="300" height="600" />
 
