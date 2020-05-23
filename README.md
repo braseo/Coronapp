@@ -42,7 +42,7 @@ https://github.com/braseo/Coronapp.git
 
 - Recycler view avec le nom des pays toucber par le coronavirus .
 
-<img src="images/Recycler_view.png" alt="Recycler view" width="400" height="200" />
+<img src="images/Recycler_view.png" alt="Recycler view" width="300" height="600" />
 
 - Menu en appuyant sur les 3 points en haut à droite avec 2 options:
 	
