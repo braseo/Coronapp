@@ -10,7 +10,7 @@ Cette application affiche le pokédex du jeu pokémon et utilise l'API de Github
 
 
 - Installation d'Android Studio
-- Récupérer la branche develop<br/>
+- Récupérer la branche Master<br/>
 
 
 ````
@@ -18,6 +18,12 @@ https://github.com/braseo/Coronapp.git
 ````
 
 ## Consignes respectées : 
+
+Ecran avec une liste d’éléments.
+Ecran avec le détail d’un élément.
+Appel WebService à une API Rest.
+Stockage de données en cache
+
 
 - Clean Architecture & MVVM
 - Appels REST
