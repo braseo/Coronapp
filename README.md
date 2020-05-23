@@ -4,7 +4,7 @@
 
 Projet d'une application mobile dans le cadre du cours Programmation Mobile ESIEA
 
-Cette application affiche les pays toucher par le corona virus et utilise l'API de Github permettant d'aller chercher un fichier sur le repo d'un utilisateur Github.
+Cette application affiche les pays toucher par le corona virus, les morts et les personnes qui ont survécu
 
 ## Prérequis
 
