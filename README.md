@@ -35,6 +35,7 @@ Stockage de données en cache
 	- Barre de recherche
 	- Filtrage de la liste en fonction du type des pokémons (Puce cliquable dans le détail)
 	- Redirection sur les détails des évolutions des pokémons
+	- Menu avec des options cliquable, bouton paramètre et bouton exit (ferme l'application) 
 
 
 ## Fonctionnalités: 
@@ -43,7 +44,7 @@ Stockage de données en cache
 
 - Splash affichant une pokeball.
 
-<img src="img_readme/splash.png" alt="splash">
+<img src="images/Recycler_view.png" alt="Recycler view">
 
 ### Ecran Home 
 
