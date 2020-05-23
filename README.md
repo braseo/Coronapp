@@ -26,15 +26,18 @@ Stockage de données en cache
 
 
 - Clean Architecture & MVVM
-- Appels REST
-- Ecrans : 3 activités, 3 fragments
+- Appels API REST et stockage de données en cache
+- Ecrans : 2 activités, 2 fragments
 - Affichage d'une liste dans un RecyclerView
 - Affichage du détail d'un item de la liste
-- Gitflow propre
+- Gitflow
 - Fonctions supplémentaires :
 	- Barre de recherche
 	- Filtrage de la liste en fonction du type des pokémons (Puce cliquable dans le détail)
 	- Redirection sur les détails des évolutions des pokémons
+	- Notifications Push ( Firebase ) 
+	- Singleton
+
 
 
 ## Fonctionnalités: 
