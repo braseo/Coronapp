@@ -44,7 +44,7 @@ Stockage de données en cache
 
 - Splash affichant une pokeball.
 
-<img src="images/Recycler_view.png" alt="Recycler view">
+<img src="images/Recycler_view.png" alt="Recycler view" width-"100" height-"200">
 
 ### Ecran Home 
 
