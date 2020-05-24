@@ -58,9 +58,12 @@ https://github.com/braseo/Coronapp.git
 - Affiche le pays
 - Affiche le nombre de contaminé 
 - Affiche le nombre de personnes qui ont survécu au virus
+- Affiche le nombre de mort
+- Affiche le nombre de contaminé dans les dernières 24h
+- Affiche le nombre de personnes qui ont survécu au virus dans les dernières 24h
+- Affiche le nombre de mort dans les dernières 24h
 
-
-<img src="images/Detail_activity.png" alt="Detail_activity" width="300" height="600" />
+<img src="images/Details_activity.png" alt="Detail_activity" width="300" height="600" />
 
 ### Notifications
 
