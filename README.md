@@ -60,7 +60,7 @@ https://github.com/braseo/Coronapp.git
 - Affiche le nombre de personnes qui ont survécu au virus
 
 
-<img src="images/Detail_activity.png" alt="Detail_activity" width="300" height="600" />
+<img src="images/Details_activity.png" alt="Detail_activity" width="300" height="600" />
 
 ### Notifications
 
