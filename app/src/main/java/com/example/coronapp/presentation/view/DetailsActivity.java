@@ -63,7 +63,7 @@ public class DetailsActivity extends AppCompatActivity {
         txtRecovered.setText("Total Recovered: " + corona.getTotalRecovered());
         txtConfirmed24h.setText("Infected in the last 24h: " + corona.getNewConfirmed());
         txtDeath24h.setText("Death in the last 24h: " + corona.getNewDeaths());
-        txtRecovered24h.setText("Recovered in the last 24h: " + corona.getNewConfirmed());
+        txtRecovered24h.setText("Recovered in the last 24h: " + corona.getNewRecovered());
 
     }
 
