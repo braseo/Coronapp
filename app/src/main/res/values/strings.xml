@@ -4,4 +4,8 @@
     <string name="country">country</string>
     <string name="total_death">total_death</string>
     <string name="total_recovered">TotalRecovered</string>
+    <string name="total_confirmed">TotalConfirmed</string>
+    <string name="recovered_in_last_24h">recovered_in_last_24h</string>
+    <string name="death_in_last_24h">death_in_last_24h</string>
+    <string name="infected_in_last_24h">infected_in_last_24h</string>
 </resources>
