@@ -2,9 +2,9 @@
 
 ## Présentation
 
-Simple projet démontrant l'utilisation de Clean Architecture et du pattern MVVM dans une application android codé en Kotlin.
+Projet d'une application mobile dans le cadre du cours Programmation Mobile ESIEA
 
-Cette application affiche le pokédex du jeu pokémon et utilise l'API de Github permettant d'aller chercher un fichier sur le repo d'un utilisateur Github.
+Cette application affiche les pays touchés par le corona virus, les morts et les personnes qui ont survécu
 
 ## Prérequis
 
@@ -19,24 +19,20 @@ https://github.com/braseo/Coronapp.git
 
 ## Consignes respectées : 
 
-Ecran avec une liste d’éléments.
-Ecran avec le détail d’un élément.
-Appel WebService à une API Rest.
-Stockage de données en cache
 
+- Écrans : 2 activités, 2 fragments
+- Affichage d'une liste d’éléments dans une Recycler View
+- Affichage du détail d'un item de la liste dans une autre activité
+- Appel WebService à une API Rest
+- Stockage de données en cache
 
-- Clean Architecture & MVVM
-- Appels API REST et stockage de données en cache
-- Ecrans : 2 activités, 2 fragments
-- Affichage d'une liste dans un RecyclerView
-- Affichage du détail d'un item de la liste
-- Gitflow
 - Fonctions supplémentaires :
 	- Barre de recherche
-	- Filtrage de la liste en fonction du type des pokémons (Puce cliquable dans le détail)
-	- Redirection sur les détails des évolutions des pokémons
-	- Notifications Push ( Firebase ) 
-	- Singleton
+	- Redirection sur les détails des pays (morts, survivants)
+	- Menu avec des options cliquables, bouton paramètre et bouton exit (ferme l'application) 
+	- Clean architecture & MVC
+	- Singletons pour les objets
+	- Gitflow
 
 
 
@@ -44,29 +40,31 @@ Stockage de données en cache
 
 ### Premier écran 
 
-- Splash affichant une pokeball.
+- Recycler view avec les noms des pays touchés par le coronavirus.
 
-<img src="img_readme/splash.png" alt="splash">
+<img src="images/Recycler_view.png" alt="Recycler view" width="300" height="600" />
 
-### Ecran Home 
+- Menu en appuyant sur les 3 points en haut à droite avec 2 options:
+	
+	- Settings qui affiche un toast
+	- Exit qui quitte l'application
+<img src="images/Item.png" alt="Item" width="300" height="600" />
+	
+- Barre de recherche pour trouver directement un pays
+<img src="images/Search_bar.png" alt="Search_bar" width="300" height="600" />
 
-- Affiche la liste des pokémons avec une barre de recherche.
+### Ecran détail des pays, le nombre de contaminé et le nombre de mort
 
-<img src="img_readme/liste_pokemon.png" alt="liste pokemon">   <img src="img_readme/recherche.png" alt="recherche">
+- Affiche le pays
+- Affiche le nombre de contaminé 
+- Affiche le nombre de personnes qui ont survécu au virus
 
-### Ecran du détail du pokémon
 
-- Affiche les différentes informations sur le pokémon 
-- Puces type, weaknesses, previous evolution et next evolution sont cliquables 
-- Redirection en fonction de la puce  :
-	- Type, weaknesses : Vers la liste des pokémons du type selectionné 
-	- Evolution : Vers le détail du pokémon selectionné
+<img src="images/Detail_activity.png" alt="Detail_activity" width="300" height="600" />
 
-<img src="img_readme/detail_pokemon.png" alt="détail pokemon"> <img src="img_readme/detail_pokemon_2.png" alt="détail pokemon"> 
+### Notifications
 
-### Filtres 
+Reception de notification avec Firebase Cloud Messaging.
 
-Affichage obtenu avec la selection des types eau et plante
-
-<img src="img_readme/filtre_eau.png" alt="détail pokemon"> <img src="img_readme/filtre_plante.png" alt="détail pokemon"> 
+<img src="images/Firebase.png" alt="Firebase" width="300" height="600" />
 
