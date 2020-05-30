@@ -4,7 +4,7 @@
 
 Projet d'une application mobile dans le cadre du cours Programmation Mobile ESIEA
 
-Cette application affiche les pays touchés par le corona virus, les morts et les personnes qui ont survécu
+Coronapp est une application Android qui permet de voir le nombre de personnes contaminé, guéri et morte du coronavirus en fonction du pays.
 
 ## Prérequis
 
@@ -47,20 +47,22 @@ https://github.com/braseo/Coronapp.git
 - Menu en appuyant sur les 3 points en haut à droite avec 2 options:
 	
 	- Settings qui affiche un toast
-	- Exit qui quitte l'application
+	- Exit permet de quitter l'application
+	
 <img src="images/Item.png" alt="Item" width="300" height="600" />
 	
 - Barre de recherche pour trouver directement un pays
+
 <img src="images/Search_bar.png" alt="Search_bar" width="300" height="600" />
 
 ### Ecran détail des pays, le nombre de contaminé et le nombre de mort
 
 - Affiche le pays
 - Affiche le nombre de contaminé 
-- Affiche le nombre de personnes qui ont survécu au virus
+- Affiche le nombre de personnes qui ont guéri du virus
 - Affiche le nombre de mort
 - Affiche le nombre de contaminé dans les dernières 24h
-- Affiche le nombre de personnes qui ont survécu au virus dans les dernières 24h
+- Affiche le nombre de personnes qui ont guéri du virus dans les dernières 24h
 - Affiche le nombre de mort dans les dernières 24h
 
 <img src="images/Details_activity.png" alt="Detail_activity" width="300" height="600" />
