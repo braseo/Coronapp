@@ -55,7 +55,7 @@ https://github.com/braseo/Coronapp.git
 
 <img src="images/Search_bar.png" alt="Search_bar" width="300" height="600" />
 
-### Ecran détail des pays, le nombre de contaminé et le nombre de mort
+### Ecran détail des pays avec le nombre de contaminé, le nombre de personnes qui ont guéri du virus et le nombre de mort
 
 - Affiche le pays
 - Affiche le nombre de contaminé 
