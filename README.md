@@ -75,4 +75,4 @@ Reception de notification avec Firebase Cloud Messaging.
 
 ## Usage
 
-API: [covid19](https://covid19api.com/)
+API: [Covid19](https://covid19api.com/)
