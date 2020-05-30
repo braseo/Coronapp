@@ -73,3 +73,6 @@ Reception de notification avec Firebase Cloud Messaging.
 
 <img src="images/Firebase.png" alt="Firebase" width="300" height="600" />
 
+## Usage
+
+API: [covid19](https://covid19api.com/)
